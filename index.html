@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Novanta Worldwide LLC | Wholesale, Import & Export</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1a1a1a;
+            background-color: white;
+            line-height: 1.6;
+        }
+
+
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background-color: #062B5C;
+
+            z-index: 9999;
+
+            pointer-events: none;
+
+            animation: pageEnter 0.65s ease-in-out forwards;
+        }
+
+        @keyframes pageEnter {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        @keyframes pageExit {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+
+
+        .navbar {
+            background-color: #ffffff;
+            width: 100%;
+            height: 125px;
+            padding: 0 6%;
+            --logo-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+
+            z-index: 1000;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 100px;
+            background: white;
+            padding: 5px 5px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            order: 3;
+            z-index: 2;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .logo img {
+            height: var(--logo-height);
+            width: auto;
+            display: block;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            order: 1;
+        }
+
+        .nav-links a {
+            color: #062B5C;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+
+            position: relative;
+
+            transition:
+                color 0.25s ease;
+        }
+
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background-color: #062B5C;
+
+            transition:
+                width 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #c9d9ed;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-button {
+            display: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            order: 2;
+
+            transition:
+                transform 0.25s ease;
+        }
+
+        .menu-button:hover {
+            transform: scale(1.08);
+        }
+
+        .hero {
+            background:
+                linear-gradient(
+                    rgba(6, 43, 92, 0.92),
+                    rgba(6, 43, 92, 0.92)
+                ),
+                url("images/hero.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            min-height: 600px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: white;
+
+            padding: 80px 20px;
+
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 900px;
+
+
+            animation:
+                heroContentIn 1s ease-out 0.2s both;
+        }
+
+        @keyframes heroContentIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero h2 {
+            font-size: 30px;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            max-width: 750px;
+            margin: 0 auto 35px;
+            color: #e6edf5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+
+            animation:
+                heroButtonsIn 0.8s ease-out 0.65s both;
+        }
+
+        @keyframes heroButtonsIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+
+            transition:
+                transform 0.25s ease,
+                background-color 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-white {
+            background-color: white;
+            color: #062B5C;
+        }
+
+        .btn-white:hover {
+            background-color: #e8edf3;
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: #062B5C;
+        }
+
+
+        .intro {
+            padding: 90px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            color: #062B5C;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            max-width: 900px;
+            margin: 0 auto 15px;
+            color: #555;
+            font-size: 17px;
+        }
+
+
+        .reveal {
+            opacity: 0;
+
+            transform:
+                translateY(30px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        .products {
+            background-color: #f4f7fa;
+            padding: 90px 7%;
+        }
+
+        .products-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 6px;
+            overflow: hidden;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .product-card:hover {
+            transform:
+                translateY(-7px);
+
+            box-shadow:
+                0 12px 25px rgba(0,0,0,0.13);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+
+            display: block;
+
+            transition:
+                transform 0.5s ease;
+        }
+
+        .product-card:hover img {
+            transform:
+                scale(1.04);
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-content h3 {
+            color: #062B5C;
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .product-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .product-link {
+            color: #062B5C;
+            text-decoration: none;
+            font-weight: bold;
+
+            transition:
+                color 0.25s ease;
+        }
+
+        .product-link:hover {
+            text-decoration: underline;
+            color: #345F8F;
+        }
+
+
+        .services {
+            padding: 90px 8%;
+            text-align: center;
+        }
+
+        .service-grid {
+            max-width: 1000px;
+            margin: 45px auto 0;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .service {
+            border: 1px solid #dce3eb;
+            padding: 25px;
+            text-align: left;
+            border-radius: 5px;
+            background-color: white;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .service:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                #9FB5CC;
+
+            box-shadow:
+                0 9px 20px rgba(0,0,0,0.08);
+        }
+
+        .service h3 {
+            color: #062B5C;
+            font-size: 19px;
+        }
+
+
+        .cta {
+            background-color: #062B5C;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: #dce6f2;
+            font-size: 17px;
+        }
+
+        .contact-info {
+            margin-top: 25px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+
+            transition:
+                color 0.25s ease;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: #c9d9ed;
+        }
+
+
+        footer {
+            background-color: #041d3f;
+            color: white;
+            padding: 40px 7%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-section p {
+            color: #cbd7e5;
+            margin-bottom: 7px;
+        }
+
+        .footer-section a {
+            color: #cbd7e5;
+            text-decoration: none;
+
+            transition:
+                color 0.2s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #345174;
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+            color: #aebed1;
+            font-size: 14px;
+        }
+
+
+        @media (max-width: 900px) {
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+        }
+
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .nav-links {
+                display: flex;
+
+                position: absolute;
+
+                top: 75px;
+                left: 0;
+
+                width: 100%;
+
+                background-color: #062B5C;
+
+                flex-direction: column;
+                gap: 0;
+
+                z-index: 1000;
+
+                opacity: 0;
+
+                transform:
+                    translateY(-10px);
+
+                pointer-events: none;
+
+                transition:
+                    opacity 0.3s ease,
+                    transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+                pointer-events: auto;
+            }
+
+            .nav-links li {
+                border-top: 1px solid #345174;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 18px 25px;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+        }
+
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="page-transition"></div>
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Novanta Worldwide LLC">
+        </a>
+
+
+        <div
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open navigation menu"
+            role="button"
+            tabindex="0"
+        >
+            ☰
+        </div>
+
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About Us
+                </a>
+            </li>
+
+            <li>
+                <a href="products.html">
+                    Products
+                </a>
+            </li>
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact Us
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                NOVANTA WORLDWIDE LLC
+            </h1>
+
+            <h2>
+                Your Global Partner in Wholesale, Import & Export
+            </h2>
+
+            <p>
+                Connecting businesses with household appliances,
+                machinery, equipment, hardware and general merchandise.
+            </p>
+
+            <p>
+                We specialize in international sourcing and wholesale
+                distribution, helping businesses access products from
+                reliable suppliers across global markets.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="products.html"
+                    class="btn btn-white"
+                >
+                    Explore Our Products
+                </a>
+
+
+                <a
+                    href="contact.html"
+                    class="btn btn-outline"
+                >
+                    Contact Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="intro">
+
+        <div class="reveal">
+
+            <h2 class="section-title">
+                Connecting Businesses to Global Markets
+            </h2>
+
+
+            <p>
+                At Novanta Worldwide LLC, we specialize in connecting
+                suppliers and customers through reliable sourcing,
+                wholesale distribution and international trade.
+            </p>
+
+            <p>
+                From household appliances and general merchandise to
+                machinery and equipment, we help businesses source
+                products that meet their purchasing requirements.
+            </p>
+
+            <p>
+                Our commitment to customer service, competitive sourcing,
+                and long-term relationships makes us a trusted partner
+                for businesses operating across international markets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="products">
+
+        <div class="products-header reveal">
+
+            <h2 class="section-title">
+                Our Product Categories
+            </h2>
+
+            <p>
+                Explore our range of products and equipment for
+                business and commercial needs.
+            </p>
+
+        </div>
+
+
+        <div class="product-grid">
+
+
+            <div class="product-card reveal">
+
+                <img
+                    src="images/appliances.jpg"
+                    alt="Household Appliances"
+                    loading="lazy"
+                >
+
+
+                <div class="product-content">
+
+                    <h3>
+                        Household Appliances
+                    </h3>
+
+                    <p>
+                        A selection of household appliances and
+                        consumer products sourced for wholesale
+                        distribution.
+                    </p>
+
+                    <a
+                        href="products.html"
+                        class="product-link"
+                    >
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card reveal">
+
+                <img
+                    src="images/machinery.jpeg"
+                    alt="Machinery and Equipment"
+                    loading="lazy"
+                >
+
+
+                <div class="product-content">
+
+                    <h3>
+                        Machinery & Equipment
+                    </h3>
+
+                    <p>
+                        Machinery and equipment solutions for
+                        businesses across a variety of industries.
+                    </p>
+
+                    <a
+                        href="products.html"
+                        class="product-link"
+                    >
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card reveal">
+
+                <img
+                    src="images/hardware.jpeg"
+                    alt="Hardware and Tools"
+                    loading="lazy"
+                >
+
+
+                <div class="product-content">
+
+                    <h3>
+                        Hardware & Tools
+                    </h3>
+
+                    <p>
+                        Reliable hardware, tools and supplies
+                        available for wholesale customers.
+                    </p>
+
+                    <a
+                        href="products.html"
+                        class="product-link"
+                    >
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card reveal">
+
+                <img
+                    src="images/merchandise.jpeg"
+                    alt="General Merchandise"
+                    loading="lazy"
+                >
+
+
+                <div class="product-content">
+
+                    <h3>
+                        General Merchandise
+                    </h3>
+
+                    <p>
+                        General merchandise sourced to meet
+                        different business purchasing requirements.
+                    </p>
+
+                    <a
+                        href="products.html"
+                        class="product-link"
+                    >
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="services">
+
+        <div class="reveal">
+
+            <h2 class="section-title">
+                Our Services
+            </h2>
+
+
+            <div class="service-grid">
+
+
+                <div class="service reveal">
+
+                    <h3>
+                        Wholesale Distribution
+                    </h3>
+
+                </div>
+
+
+                <div class="service reveal">
+
+                    <h3>
+                        International Import & Export
+                    </h3>
+
+                </div>
+
+
+                <div class="service reveal">
+
+                    <h3>
+                        Product Sourcing
+                    </h3>
+
+                </div>
+
+
+                <div class="service reveal">
+
+                    <h3>
+                        Machinery & Equipment Sourcing
+                    </h3>
+
+                </div>
+
+
+                <div class="service reveal">
+
+                    <h3>
+                        Business-to-Business Supply
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="cta">
+
+        <div class="reveal">
+
+            <h2>
+                Looking for a Reliable Wholesale Supplier?
+            </h2>
+
+            <p>
+                Let Novanta Worldwide LLC help you source the products
+                and equipment your business needs.
+            </p>
+
+            <p>
+                Contact our team today to discuss your requirements
+                and request a quote.
+            </p>
+
+
+            <div class="contact-info">
+
+                <p>
+                    Phone:
+
+                    <a href="tel:+15125846146">
+                        +1 (512) 584-6146
+                    </a>
+                </p>
+
+
+                <p>
+                    Email:
+
+                    <a href="mailto:yaneliswaight86@gmail.com">
+                        yaneliswaight86@gmail.com
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <div class="footer-content">
+
+
+            <div class="footer-section">
+
+                <h3>
+                    Novanta Worldwide LLC
+                </h3>
+
+                <p>
+                    Your Global Partner in Wholesale,
+                    Import & Export.
+                </p>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <p>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </p>
+
+                <p>
+                    <a href="about.html">
+                        About Us
+                    </a>
+                </p>
+
+                <p>
+                    <a href="products.html">
+                        Products
+                    </a>
+                </p>
+
+                <p>
+                    <a href="services.html">
+                        Services
+                    </a>
+                </p>
+
+                <p>
+                    <a href="contact.html">
+                        Contact Us
+                    </a>
+                </p>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    <a href="tel:+15125846146">
+                        +1 (512) 584-6146
+                    </a>
+                </p>
+
+                <p>
+                    <a href="mailto:yaneliswaight86@gmail.com">
+                        yaneliswaight86@gmail.com
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Novanta Worldwide LLC.
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+
+
+    <script>
+
+
+        const menuButton =
+            document.getElementById("menuButton");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuButton.addEventListener(
+            "click",
+            function () {
+
+                navLinks.classList.toggle("active");
+
+            }
+        );
+
+
+        menuButton.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Enter" ||
+                    event.key === " "
+                ) {
+
+                    event.preventDefault();
+
+                    navLinks.classList.toggle("active");
+
+                }
+
+            }
+        );
+
+
+
+
+        const navigationLinks =
+            document.querySelectorAll(
+                ".nav-links a"
+            );
+
+
+        navigationLinks.forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        navLinks.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        const transition =
+            document.querySelector(
+                ".page-transition"
+            );
+
+
+        const pageLinks =
+            document.querySelectorAll(
+                'a[href$=".html"]'
+            );
+
+
+        pageLinks.forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function (event) {
+
+                        const destination =
+                            this.href;
+
+
+                        if (
+                            destination.startsWith("tel:") ||
+                            destination.startsWith("mailto:")
+                        ) {
+                            return;
+                        }
+
+
+
+                        if (
+                            this.pathname ===
+                            window.location.pathname
+                        ) {
+                            return;
+                        }
+
+
+                        event.preventDefault();
+
+
+                        navLinks.classList.remove(
+                            "active"
+                        );
+
+
+
+
+                        transition.style.animation =
+                            "pageExit 0.5s ease-in-out forwards";
+
+
+                        setTimeout(
+                            function () {
+
+                                window.location.href =
+                                    destination;
+
+                            },
+                            450
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        const revealElements =
+            document.querySelectorAll(
+                ".reveal"
+            );
+
+
+
+        const revealObserver =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+
+                                
+
+                                revealObserver.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+
+        revealElements.forEach(
+            function (element) {
+
+                revealObserver.observe(
+                    element
+                );
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+</html>

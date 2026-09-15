@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Services | Novanta Worldwide LLC</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1a1a1a;
+            background-color: white;
+            line-height: 1.6;
+        }
+
+        
+
+        .navbar {
+            background-color: #ffffff;
+            width: 100%;
+            height: 125px;
+            padding: 0 6%;
+            --logo-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 100px;
+            background-color: white;
+            padding: 5px 5px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            order: 3;
+            z-index: 2;
+        }
+
+        .logo img {
+            height: var(--logo-height);
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            order: 1;
+        }
+
+        .nav-links a {
+            color: #062B5C;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #c9d9ed;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+            width: 0;
+            height: 2px;
+            background-color: #062B5C;
+            transition: width 0.25s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .menu-button {
+            display: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            order: 2;
+            transition: transform 0.25s ease;
+        }
+
+        .menu-button:hover {
+            transform: scale(1.08);
+        }
+
+
+        
+
+        .page-banner {
+            background-color: #062B5C;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .page-banner h1 {
+            font-size: 46px;
+            margin-bottom: 12px;
+        }
+
+        .page-banner p {
+            color: #dce6f2;
+            font-size: 19px;
+        }
+
+
+        
+
+        .services-intro {
+            max-width: 850px;
+            margin: auto;
+            padding: 70px 30px 50px;
+            text-align: center;
+        }
+
+        .services-intro h2 {
+            color: #062B5C;
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .services-intro p {
+            color: #555;
+            font-size: 17px;
+        }
+
+
+        
+
+        .services {
+            background-color: #f4f7fa;
+            padding: 70px 7%;
+        }
+
+        .service-grid {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 6px;
+            border-top: 4px solid #062B5C;
+
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 8px 22px rgba(0, 0, 0, 0.10);
+        }
+
+        .service-number {
+            color: #062B5C;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .service-card h2 {
+            color: #062B5C;
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .service-card.full-width {
+            grid-column: 1 / -1;
+            max-width: 535px;
+            width: 100%;
+            justify-self: center;
+        }
+
+
+        
+
+        .cta {
+            background-color: #062B5C;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: #dce6f2;
+            font-size: 17px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: #062B5C;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .btn:hover {
+            background-color: #e8edf3;
+        }
+
+
+        
+
+        footer {
+            background-color: #041d3f;
+            color: white;
+            padding: 40px 7%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-section p {
+            color: #cbd7e5;
+            margin-bottom: 7px;
+        }
+
+        .footer-section a {
+            color: #cbd7e5;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #345174;
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+            color: #aebed1;
+            font-size: 14px;
+        }
+
+
+        
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+                top: 75px;
+                left: 0;
+
+                width: 100%;
+
+                background-color: #062B5C;
+
+                flex-direction: column;
+                gap: 0;
+
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                border-top: 1px solid #345174;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 18px 25px;
+            }
+
+            .page-banner h1 {
+                font-size: 36px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card.full-width {
+                grid-column: auto;
+                max-width: none;
+            }
+
+            .service-card {
+                padding: 30px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    
+
+
+
+.page-transition {
+    position: fixed;
+    inset: 0;
+    background: #062B5C;
+    z-index: 9999;
+    pointer-events: none;
+    animation: pageEnter 0.5s ease forwards;
+}
+
+@keyframes pageEnter {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.page-transition.exit {
+    animation: pageExit 0.4s ease forwards;
+}
+
+@keyframes pageExit {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+.hero-content,
+.page-banner > * {
+    animation: heroFadeUp 0.9s ease-out both;
+}
+
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.product-card,
+.service-card,
+.mission-card,
+.value-card,
+.contact-details,
+.contact-form {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover,
+.service-card:hover,
+.mission-card:hover,
+.value-card:hover,
+.contact-details:hover,
+.contact-form:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+.product-card img,
+.product-image {
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover img,
+.product-image:hover {
+    transform: scale(1.03);
+}
+
+
+.btn,
+.submit-button {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.btn:hover,
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #062B5C;
+    transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+
+@media (max-width: 768px) {
+    .nav-links {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links:not(.active) {
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="page-transition"></div>
+
+    
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Novanta Worldwide LLC">
+        </a>
+
+        <div
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open navigation menu"
+            role="button"
+            tabindex="0"
+        >
+            â˜°
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="about.html">About Us</a>
+            </li>
+
+            <li>
+                <a href="products.html">Products</a>
+            </li>
+
+            <li>
+                <a href="services.html" class="active">Services</a>
+            </li>
+
+            <li>
+                <a href="contact.html">Contact Us</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    
+
+    <section class="page-banner">
+
+        <h1>Our Services</h1>
+
+        <p>
+            Practical sourcing, distribution and international
+            trade solutions for businesses.
+        </p>
+
+    </section>
+
+
+    
+
+    <section class="services-intro reveal">
+
+        <h2>
+            Supporting Your Business Supply Needs
+        </h2>
+
+        <p>
+            Novanta Worldwide LLC provides sourcing, wholesale
+            distribution and international trade solutions designed
+            to help businesses find the products and equipment they
+            need.
+        </p>
+
+    </section>
+
+
+    
+
+    <section class="services reveal">
+
+        <div class="service-grid">
+
+
+            
+
+            <div class="service-card reveal">
+
+                
+
+                <h2>
+                    Wholesale Distribution
+                </h2>
+
+                <p>
+                    We provide wholesale distribution solutions for
+                    businesses, retailers and commercial customers.
+                </p>
+
+                <br>
+
+                <p>
+                    Our goal is to help customers source the products
+                    they need while offering competitive pricing and
+                    dependable service.
+                </p>
+
+            </div>
+
+
+            
+
+            <div class="service-card reveal">
+
+                
+                <h2>
+                    International Import & Export
+                </h2>
+
+                <p>
+                    We facilitate the sourcing and movement of
+                    merchandise between suppliers and customers in
+                    international markets.
+                </p>
+
+                <br>
+
+                <p>
+                    Our trading network includes the United States,
+                    China, Panama, Belize, Mexico and Central America.
+                </p>
+
+            </div>
+
+
+            
+
+            <div class="service-card reveal">
+
+            
+
+                <h2>
+                    Product Sourcing
+                </h2>
+
+                <p>
+                    We assist customers in sourcing household
+                    appliances, machinery, equipment, hardware and
+                    general merchandise according to their purchasing
+                    requirements.
+                </p>
+
+                <br>
+
+                <p>
+                    Customers can contact us with their product
+                    specifications, quantities and delivery
+                    requirements.
+                </p>
+
+            </div>
+
+
+            
+
+            <div class="service-card reveal">
+
+                
+
+                <h2>
+                    Machinery & Auction Sourcing
+                </h2>
+
+                <p>
+                    We source machinery, equipment and vehicles
+                    through established suppliers and auction
+                    platforms, including IAAI and other relevant
+                    auction houses.
+                </p>
+
+                <br>
+
+                <p>
+                    Our sourcing services help customers identify
+                    available equipment based on their requirements
+                    and budget.
+                </p>
+
+            </div>
+
+
+            
+
+            <div class="service-card full-width">
+
+            
+
+                <h2>
+                    Business-to-Business Supply
+                </h2>
+
+                <p>
+                    We work with businesses, retailers, contractors,
+                    and commercial customers to help meet their
+                    purchasing and supply needs.
+                </p>
+
+                <br>
+
+                <p>
+                    Whether customers require individual products or
+                    bulk orders, we aim to provide practical sourcing
+                    and distribution solutions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    
+
+    <section class="cta reveal">
+
+        <h2>
+            Need Help Sourcing a Product?
+        </h2>
+
+        <p>
+            Tell us what your business needs and our team can help
+            identify sourcing and distribution solutions that fit
+            your requirements.
+        </p>
+
+        <a href="contact.html" class="btn">
+            Contact Us
+        </a>
+
+    </section>
+
+
+    
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div class="footer-section">
+
+                <h3>
+                    Novanta Worldwide LLC
+                </h3>
+
+                <p>
+                    Your Global Partner in Wholesale,
+                    Import & Export.
+                </p>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <p>
+                    <a href="index.html">Home</a>
+                </p>
+
+                <p>
+                    <a href="about.html">About Us</a>
+                </p>
+
+                <p>
+                    <a href="products.html">Products</a>
+                </p>
+
+                <p>
+                    <a href="services.html">Services</a>
+                </p>
+
+                <p>
+                    <a href="contact.html">Contact Us</a>
+                </p>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    <a href="tel:+15125846146">
+                        +1 (512) 584-6146
+                    </a>
+                </p>
+
+                <p>
+                    <a href="mailto:Yaneliswaight86@gmail.com">
+                        Yaneliswaight86@gmail.com
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            Â© 2026 Novanta Worldwide LLC.
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+    
+
+    <script>
+
+        function toggleMenu() {
+
+            const navLinks =
+                document.getElementById("navLinks");
+
+            navLinks.classList.toggle("active");
+
+        }
+
+        const menuButton = document.getElementById("menuButton");
+
+        menuButton.addEventListener("click", toggleMenu);
+
+        menuButton.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                toggleMenu();
+            }
+        });
+
+    </script>
+
+
+<script>
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+    } else {
+        revealElements.forEach(element => {
+            element.classList.add("visible");
+        });
+    }
+
+    document.querySelectorAll('a[href$=".html"]').forEach(link => {
+        link.addEventListener("click", function(event) {
+            const href = this.getAttribute("href");
+
+            if (!href || href.startsWith("#")) return;
+
+            event.preventDefault();
+
+            const transition = document.querySelector(".page-transition");
+
+            if (transition) {
+                transition.classList.add("exit");
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 400);
+            } else {
+                window.location.href = href;
+            }
+        });
+    });
+
+    function toggleMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("active");
+    }
+</script>
+
+
+</body>
+
+</html>
+

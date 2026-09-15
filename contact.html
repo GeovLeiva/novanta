@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | Novanta Worldwide LLC</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1a1a1a;
+            background-color: white;
+            line-height: 1.6;
+        }
+
+        
+
+        .navbar {
+            background-color: #ffffff;
+            width: 100%;
+            height: 125px;
+            padding: 0 6%;
+            --logo-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 100px;
+            background-color: white;
+            padding: 5px 5px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            order: 3;
+            z-index: 2;
+        }
+
+        .logo img {
+            height: var(--logo-height);
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            order: 1;
+        }
+
+        .nav-links a {
+            color: #062B5C;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #c9d9ed;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+            width: 0;
+            height: 2px;
+            background-color: #062B5C;
+            transition: width 0.25s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .menu-button {
+            display: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            order: 2;
+            transition: transform 0.25s ease;
+        }
+
+        .menu-button:hover {
+            transform: scale(1.08);
+        }
+
+
+        
+
+        .page-banner {
+            background-color: #062B5C;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .page-banner h1 {
+            font-size: 46px;
+            margin-bottom: 12px;
+        }
+
+        .page-banner p {
+            color: #dce6f2;
+            font-size: 19px;
+        }
+
+
+        
+
+        .contact-intro {
+            max-width: 850px;
+            margin: auto;
+            padding: 70px 30px 50px;
+            text-align: center;
+        }
+
+        .contact-intro h2 {
+            color: #062B5C;
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .contact-intro p {
+            color: #555;
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+
+        
+
+        .contact-section {
+            display: flex;
+            justify-content: center;
+            background-color: #f4f7fa;
+            padding: 40px 7%;
+        }
+
+        .contact-container { 
+    max-width: 1100px; 
+    width: 100%;
+    margin: auto; 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 40px; 
+}
+
+
+        
+
+        .contact-details {
+    width: 100%;
+    max-width: 530px;
+    box-sizing: border-box;
+    justify-self: center;
+
+    background-color: white;
+    padding: 40px;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+        .contact-details h2 {
+            color: #062B5C;
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        .company-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #062B5C;
+            margin-bottom: 25px;
+        }
+
+        .detail {
+            margin-bottom: 20px;
+        }
+
+        .detail h3 {
+            color: #062B5C;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .detail p {
+            color: #555;
+        }
+
+        .detail a {
+            color: #062B5C;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .detail a:hover {
+            text-decoration: underline;
+        }
+
+
+        
+
+
+        
+
+        .cta {
+            background-color: #062B5C;
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .cta h2 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 20px;
+            color: #dce6f2;
+        }
+
+        .cta a {
+            color: white;
+            font-weight: bold;
+        }
+
+
+        
+
+        footer {
+            background-color: #041d3f;
+            color: white;
+            padding: 40px 7%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-section p {
+            color: #cbd7e5;
+            margin-bottom: 7px;
+        }
+
+        .footer-section a {
+            color: #cbd7e5;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #345174;
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+            color: #aebed1;
+            font-size: 14px;
+        }
+
+
+        
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+                top: 75px;
+                left: 0;
+
+                width: 100%;
+
+                background-color: #062B5C;
+
+                flex-direction: column;
+                gap: 0;
+
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                border-top: 1px solid #345174;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 18px 25px;
+            }
+
+            .page-banner h1 {
+                font-size: 36px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-details,
+            .contact-form {
+                padding: 30px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    
+
+
+
+.page-transition {
+    position: fixed;
+    inset: 0;
+    background: #062B5C;
+    z-index: 9999;
+    pointer-events: none;
+    animation: pageEnter 0.5s ease forwards;
+}
+
+@keyframes pageEnter {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.page-transition.exit {
+    animation: pageExit 0.4s ease forwards;
+}
+
+@keyframes pageExit {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+.hero-content,
+.page-banner > * {
+    animation: heroFadeUp 0.9s ease-out both;
+}
+
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.product-card,
+.service-card,
+.mission-card,
+.value-card,
+.contact-details,
+.contact-form {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover,
+.service-card:hover,
+.mission-card:hover,
+.value-card:hover,
+.contact-details:hover,
+.contact-form:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+.product-card img,
+.product-image {
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover img,
+.product-image:hover {
+    transform: scale(1.03);
+}
+
+
+.btn,
+.submit-button {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.btn:hover,
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #062B5C;
+    transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+
+@media (max-width: 768px) {
+    .nav-links {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links:not(.active) {
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="page-transition"></div>
+
+    
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Novanta Worldwide LLC">
+        </a>
+
+        <div
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open navigation menu"
+            role="button"
+            tabindex="0"
+        >
+            â˜°
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="about.html">About Us</a>
+            </li>
+
+            <li>
+                <a href="products.html">Products</a>
+            </li>
+
+            <li>
+                <a href="services.html">Services</a>
+            </li>
+
+            <li>
+                <a href="contact.html" class="active">Contact Us</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    
+
+    <section class="page-banner">
+
+        <h1>
+            Contact Us
+        </h1>
+
+        <p>
+            Let's discuss your business and sourcing requirements.
+        </p>
+
+    </section>
+
+
+    
+
+    <section class="contact-intro reveal">
+
+        <h2>
+            Contact Novanta Worldwide LLC
+        </h2>
+
+        <p>
+            We welcome inquiries from businesses, retailers,
+            distributors and commercial customers interested in
+            our products and services.
+        </p>
+
+        <p>
+            Whether you are looking for household appliances,
+            machinery, equipment, or general merchandise, our team
+            is ready to assist you.
+        </p>
+
+    </section>
+
+
+    
+
+    <section class="contact-section reveal">
+
+        <div class="contact-container">
+
+
+            
+
+            <div class="contact-details reveal">
+
+                <h2>
+                    Contact Details
+                </h2>
+
+                <div class="company-name">
+                    Novanta Worldwide LLC
+                </div>
+
+
+                <div class="detail">
+
+                    <h3>
+                        Contact Person
+                    </h3>
+
+                    <p>
+                        Yanelis Waight
+                    </p>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <h3>
+                        Phone
+                    </h3>
+
+                    <p>
+                        <a href="tel:+15125846146">
+                            +1 (512) 584-6146
+                        </a>
+                    </p>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <h3>
+                        Email
+                    </h3>
+
+                    <p>
+                        <a href="mailto:yaneliswaight86@gmail.com">
+                            yaneliswaight86@gmail.com
+                        </a>
+                    </p>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <h3>
+                        Business Address
+                    </h3>
+
+                    <p>
+                        To be confirmed
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            
+
+            
+
+        </div>
+
+    </section>
+
+
+    
+
+    <section class="cta reveal">
+
+        <h2>
+            Prefer to Speak With Us?
+        </h2>
+
+        <p>
+            Call our team directly to discuss your requirements
+            and sourcing needs.
+        </p>
+
+        <p>
+            <a href="tel:+15125846146">
+                +1 (512) 584-6146
+            </a>
+        </p>
+
+        <p>
+            <a href="mailto:yaneliswaight86@gmail.com">
+                yaneliswaight86@gmail.com
+            </a>
+        </p>
+
+    </section>
+
+
+    
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div class="footer-section">
+
+                <h3>
+                    Novanta Worldwide LLC
+                </h3>
+
+                <p>
+                    Your Global Partner in Wholesale,
+                    Import & Export.
+                </p>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <p>
+                    <a href="index.html">Home</a>
+                </p>
+
+                <p>
+                    <a href="about.html">About Us</a>
+                </p>
+
+                <p>
+                    <a href="products.html">Products</a>
+                </p>
+
+                <p>
+                    <a href="services.html">Services</a>
+                </p>
+
+                <p>
+                    <a href="contact.html">Contact Us</a>
+                </p>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    <a href="tel:+15125846146">
+                        +1 (512) 584-6146
+                    </a>
+                </p>
+
+                <p>
+                    <a href="mailto:yaneliswaight86@gmail.com">
+                        yaneliswaight86@gmail.com
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            Â© 2026 Novanta Worldwide LLC.
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+    
+
+    <script>
+
+        function toggleMenu() {
+
+            const navLinks =
+                document.getElementById("navLinks");
+
+            navLinks.classList.toggle("active");
+
+        }
+
+        const menuButton = document.getElementById("menuButton");
+
+        menuButton.addEventListener("click", toggleMenu);
+
+        menuButton.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                toggleMenu();
+            }
+        });
+
+    </script>
+
+
+<script>
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+    } else {
+        revealElements.forEach(element => {
+            element.classList.add("visible");
+        });
+    }
+
+    document.querySelectorAll('a[href$=".html"]').forEach(link => {
+        link.addEventListener("click", function(event) {
+            const href = this.getAttribute("href");
+
+            if (!href || href.startsWith("#")) return;
+
+            event.preventDefault();
+
+            const transition = document.querySelector(".page-transition");
+
+            if (transition) {
+                transition.classList.add("exit");
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 400);
+            } else {
+                window.location.href = href;
+            }
+        });
+    });
+
+    function toggleMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("active");
+    }
+</script>
+
+
+</body>
+
+</html>
+
